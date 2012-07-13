@@ -2,7 +2,8 @@
 
 main = do 
   str <- getContents 
-  mapM putStrLn$filter (/=[]) $three_gram str
+  mapM putStrLn $filter (/="") $three_gram $ filter (/='\n') str
+ -- print $filter (/="") $three_gram str
   
 
 ngram :: String -> Int -> [String]
@@ -31,4 +32,3 @@ three_gram_i ('　':xs) = []
 three_gram_i (x:'　':y) = [x]
 three_gram_i (x:y:'　':[]) = x:y:[]
 three_gram_i xs = xs
-
